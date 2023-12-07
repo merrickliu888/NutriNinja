@@ -26,7 +26,7 @@ public class SignupViewFactory {
      * @param loginViewModel
      * @param signupViewModel
      * @param userDataAccessObject
-     * @return
+     * @return a SignupView
      */
     public static SignupView create(ViewManagerModel viewManagerModel, LoginViewModel loginViewModel, SignupViewModel signupViewModel, SignupDataAccessInterface userDataAccessObject) {
         try {
