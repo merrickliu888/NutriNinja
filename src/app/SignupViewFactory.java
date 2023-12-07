@@ -20,6 +20,14 @@ public class SignupViewFactory {
     private SignupViewFactory() {
     }
 
+    /**
+     * Creates a SignupView
+     * @param viewManagerModel
+     * @param loginViewModel
+     * @param signupViewModel
+     * @param userDataAccessObject
+     * @return a SignupView
+     */
     public static SignupView create(ViewManagerModel viewManagerModel, LoginViewModel loginViewModel, SignupViewModel signupViewModel, SignupDataAccessInterface userDataAccessObject) {
         try {
             SignupController signupController = createUserSignupUseCase(viewManagerModel, signupViewModel, loginViewModel, userDataAccessObject);
@@ -30,6 +38,15 @@ public class SignupViewFactory {
         }
     }
 
+    /**
+     * Creates a SignupUseCase
+     * @param viewManagerModel
+     * @param signupViewModel
+     * @param loginViewModel
+     * @param userDataAccessObject
+     * @return a SignupController
+     * @throws IOException
+     */
     private static SignupController createUserSignupUseCase(ViewManagerModel viewManagerModel, SignupViewModel signupViewModel, LoginViewModel loginViewModel, SignupDataAccessInterface userDataAccessObject) throws IOException {
         SignupOutputBoundary signupOutputBoundary = new SignupPresenter(viewManagerModel, signupViewModel, loginViewModel);
         UserFactory userFactory = new CommonUserFactory();
