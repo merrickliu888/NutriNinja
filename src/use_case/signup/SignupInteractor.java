@@ -15,6 +15,10 @@ public class SignupInteractor implements SignupInputBoundary {
         this.userFactory = userFactory;
     }
 
+    /**
+     * Given the InputData, uses the UserDataAccessObject to check if the user exists, and if not, creates a new user and saves it
+     * @param signupInputData
+     */
     public void execute(SignupInputData signupInputData) {
         if (this.userDataAccessObject.userExists(signupInputData.getUsername())) {
             this.userPresenter.prepareFailView("User already exists.");

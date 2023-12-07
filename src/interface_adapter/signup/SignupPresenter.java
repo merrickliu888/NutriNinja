@@ -17,6 +17,10 @@ public class    SignupPresenter implements SignupOutputBoundary {
         this.loginViewModel = loginViewModel;
     }
 
+    /**
+     * Creates the success view (login view) and sets the username if the signup was successful
+     * @param response
+     */
     public void prepareSuccessView(SignupOutputData response) {
         LoginState loginState = this.loginViewModel.getState();
         loginState.setUsername(response.getUsername());
@@ -26,6 +30,10 @@ public class    SignupPresenter implements SignupOutputBoundary {
         this.viewManagerModel.firePropertyChanged();
     }
 
+    /**
+     * Creates the fail view and sets the error message if the signup was unsuccessful
+     * @param error
+     */
     public void prepareFailView(String error) {
         SignupState signupState = this.signupViewModel.getState();
         signupState.setUsernameError(error);

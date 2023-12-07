@@ -11,6 +11,12 @@ public class SignupController {
         this.userSignupUseCaseInteractor = userSignupUseCaseInteractor;
     }
 
+    /**
+     * Creates InputData to pass to the Use Case Interactor
+     * @param username
+     * @param password
+     * @param repeatPassword
+     */
     public void execute(String username, String password, String repeatPassword) {
         SignupInputData signupInputData = new SignupInputData(username, password, repeatPassword);
         this.userSignupUseCaseInteractor.execute(signupInputData);
